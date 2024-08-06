@@ -8,6 +8,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { RouterModule } from '@angular/router';
+import {IMenu, MenuComponent, SpinnerComponent} from "@nx-monorepo/shared-ui"
 
 @Component({
   selector: 'app-main',
@@ -21,14 +23,24 @@ import { map, shareReplay } from 'rxjs/operators';
     MatListModule,
     MatIconModule,
     AsyncPipe,
-  ]
+    RouterModule,
+    MenuComponent,
+    SpinnerComponent
+  ],
 })
 export class MainComponent {
   private breakpointObserver = inject(BreakpointObserver);
+  public menus: IMenu[] = [
+    { name: 'items', path: 'items' },
+    { name: 'cart', path: 'cart' },
+    { name: 'game', path: 'game' },
+    { name: 'register', path: 'register' },
+  ];
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
     .pipe(
-      map(result => result.matches),
+      map((result) => result.matches),
       shareReplay()
     );
 }

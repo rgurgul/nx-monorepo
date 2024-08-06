@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import {ItemsComponent} from '@nx-monorepo/items'
 
 export interface IMenu {
   path: string;
@@ -10,11 +11,11 @@ export interface IMenu {
   selector: 'lib-menu',
   template: `
     <nav>
-      <ul class="flex space-x-2">
+      <ul class="flex space-x-2 flex-col gap-6">
         @for (menu of _menus; track menu) {
-        <li>
+        <li class="">
           <a
-            class="rounded px-4 py-3 bg-blue-400 "
+            class="rounded px-4 py-3 bg-red-400"
             routerLinkActive="bg-blue-600"
             [routerLink]="menu.path"
             >{{ menu.name }}</a
@@ -25,7 +26,7 @@ export interface IMenu {
     </nav>
   `,
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, ItemsComponent],
 })
 export class MenuComponent {
   _menus!: IMenu[];
