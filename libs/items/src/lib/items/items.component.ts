@@ -12,9 +12,6 @@ import { ItemsFacadeService } from '../domain/items.facade';
 export class ItemsComponent {
   itemsFacade = inject(ItemsFacadeService);
   items$ = this.itemsFacade.getState();
-  constructor(){
-    this.itemsFacade.dispatch({type:'add', payload:[9,8]})
-  }
 }
 
 
