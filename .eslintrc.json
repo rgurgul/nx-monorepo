@@ -32,7 +32,7 @@
                 "onlyDependOnLibsWithTags": [
                   "type:feature",
                   "type:ui",
-                  "type:utils",
+                  "type:utils"
                 ]
               },
               {
