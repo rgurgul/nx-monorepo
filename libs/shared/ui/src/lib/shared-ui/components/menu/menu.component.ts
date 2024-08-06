@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import {ItemsComponent} from '@nx-monorepo/items'
 
 export interface IMenu {
   path: string;
@@ -26,7 +25,7 @@ export interface IMenu {
     </nav>
   `,
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, ItemsComponent],
+  imports: [RouterLink, RouterLinkActive],
 })
 export class MenuComponent {
   _menus!: IMenu[];

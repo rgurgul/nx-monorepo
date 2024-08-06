@@ -31,7 +31,8 @@
                 "sourceTag": "type:feature",
                 "onlyDependOnLibsWithTags": [
                   "type:feature",
-                  "type:ui"
+                  "type:ui",
+                  "type:utils",
                 ]
               },
               {
